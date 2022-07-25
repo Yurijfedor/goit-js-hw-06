@@ -1,0 +1,29 @@
+:root {
+  --gallery-gap: 30px;
+}
+
+ul {
+  list-style: none;
+  padding-inline-start: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(-1 * var(--gallery-gap));
+  margin-top: calc(-1 * var(--gallery-gap));
+}
+
+.item {
+  flex-basis: calc(100% / 1 - var(--gallery-gap));
+  margin-left: var(--gallery-gap);
+  margin-top: var(--gallery-gap);
+}
