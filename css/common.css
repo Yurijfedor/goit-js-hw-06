@@ -1,7 +1,3 @@
-:root {
-  --gallery-gap: 30px;
-}
-
 ul {
   list-style: none;
   padding-inline-start: 0;
@@ -18,12 +14,10 @@ img {
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  margin-left: calc(-1 * var(--gallery-gap));
-  margin-top: calc(-1 * var(--gallery-gap));
+  margin: -20px;
 }
 
 .item {
-  flex-basis: calc(100% / 1 - var(--gallery-gap));
-  margin-left: var(--gallery-gap);
-  margin-top: var(--gallery-gap);
+  flex-basis: calc(100% / 1 - 20px);
+  margin: 20px;
 }
