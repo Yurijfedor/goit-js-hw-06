@@ -2,15 +2,15 @@ const inputEl = document.querySelector("#controls");
 const btnCreateEl = document.querySelector("[data-create]");
 const btnDestroyEl = document.querySelector("[data-destroy]");
 const divContainer = document.querySelector("#boxes");
-let amounts;
+let inputValue;
 
 inputEl.firstElementChild.addEventListener("blur", getInputValue);
 
 function getInputValue() {
-  amounts = Number(inputEl.firstElementChild.value);
+  inputValue = Number(inputEl.firstElementChild.value);
 }
 
-btnCreateEl.addEventListener("click", () => createBoxes(amounts));
+btnCreateEl.addEventListener("click", () => createBoxes(inputValue));
 
 function createBoxes(amount) {
   const elements = [];
@@ -28,7 +28,7 @@ function createBoxes(amount) {
 
 btnDestroyEl.addEventListener("click", destroyBoxes);
 function destroyBoxes() {
-  for (let i = 0; i < amounts; i += 1) {
+  for (let i = 0; i < inputValue; i += 1) {
     if (divContainer.firstChild) {
       divContainer.firstChild.remove();
     }
