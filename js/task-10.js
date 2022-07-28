@@ -2,15 +2,22 @@ const inputEl = document.querySelector("#controls");
 const btnCreateEl = document.querySelector("[data-create]");
 const btnDestroyEl = document.querySelector("[data-destroy]");
 const divContainer = document.querySelector("#boxes");
+let amounts;
 
-btnCreateEl.addEventListener("click", createBoxes);
-function createBoxes() {
+inputEl.firstElementChild.addEventListener("blur", getInputValue);
+
+function getInputValue() {
+  amounts = Number(inputEl.firstElementChild.value);
+}
+
+btnCreateEl.addEventListener("click", () => createBoxes(amounts));
+
+function createBoxes(amount) {
   const elements = [];
-  const inputValue = Number(inputEl.firstElementChild.value);
-  for (let i = 0; i < inputValue; i += 1) {
+  let widthEl = 30;
+  let heightEl = 30;
+  for (let i = 0; i < amount; i += 1) {
     const divEl = document.createElement("div");
-    let widthEl = 30;
-    let heightEl = 30;
     divEl.style.width = `${widthEl + i * 10}px`;
     divEl.style.height = `${heightEl + i * 10}px`;
     divEl.style.backgroundColor = `${getRandomHexColor()}`;
@@ -21,9 +28,10 @@ function createBoxes() {
 
 btnDestroyEl.addEventListener("click", destroyBoxes);
 function destroyBoxes() {
-  const inputValue = Number(inputEl.firstElementChild.value);
-  for (let i = 0; i < inputValue; i += 1) {
-    divContainer.firstChild.remove();
+  for (let i = 0; i < amounts; i += 1) {
+    if (divContainer.firstChild) {
+      divContainer.firstChild.remove();
+    }
   }
 }
 
