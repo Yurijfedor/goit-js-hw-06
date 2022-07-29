@@ -2,6 +2,7 @@ const inputEl = document.querySelector("#controls");
 const btnCreateEl = document.querySelector("[data-create]");
 const btnDestroyEl = document.querySelector("[data-destroy]");
 const divContainer = document.querySelector("#boxes");
+
 let inputValue;
 
 inputEl.firstElementChild.addEventListener("blur", getInputValue);
@@ -27,12 +28,22 @@ function createBoxes(amount) {
 }
 
 btnDestroyEl.addEventListener("click", destroyBoxes);
+
+// ------------------------------------------ЯК ВАРІАНТ, ЯКЩО ПОТРІБНО ВИКОРИСТАТИ АТРИБУТ "MAX"--------------------------------------------------------------
+// function destroyBoxes() {
+//   let num = Number(inputEl.firstElementChild.getAttribute("max"));
+//   for (let i = 0; i <= num; i += 1)
+//     if (divContainer.firstChild) {
+//       divContainer.firstChild.remove();
+//     }
+// }
+// ----------------------------------------------------АБО ТАК---------------------------------------------------------------------------------------------------
 function destroyBoxes() {
-  for (let i = 0; i < inputValue; i += 1) {
+  let num = divContainer.childElementCount;
+  for (let i = 0; i <= num; i += 1)
     if (divContainer.firstChild) {
       divContainer.firstChild.remove();
     }
-  }
 }
 
 function getRandomHexColor() {
